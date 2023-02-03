@@ -9,5 +9,6 @@ public class sum {
         b=scn.nextInt();
         int sum = a+b;
         System.out.println("Sum of the numbers "+a+" and "+b+" is: "+sum);
+        scn.close();
     }
 }
