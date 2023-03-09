@@ -6,5 +6,6 @@ public class Main {
             System.out.println("Hello World");
             String str = input.nextLine().trim();
             System.out.println(str);
+            System.out.println(str.length());
         }
 }
