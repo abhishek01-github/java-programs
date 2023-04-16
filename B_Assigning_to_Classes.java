@@ -1,9 +1,6 @@
 import java.io.*;
 import java.util.*;
-//vowels
-//loops (2)
-public class C {
-
+public class B_Assigning_to_Classes {
     static IOHandler sc = new IOHandler();
 
     public static void main(String[] args) {
@@ -14,31 +11,16 @@ public class C {
             solve(i);
         }
     }
-
     private static void solve(int t) {
         int n = sc.nextInt();
+        int [] res = new int [2*n];
 
-        int [] res = new int [n];
-
-        int [] bArr = sc.readArray(n - 1);
-
-        res[0] = bArr[0];
-
-        for (int i = 0; i < n - 1; ++i) {
-            if (i == 0 || bArr[i] <= bArr[i - 1] )
-                res[i] = bArr[i];
-
-            res[i + 1] = bArr[i];
+        for(int i=0;i<2*n;i++){
+            res[i]=sc.nextInt();
         }
 
-        StringBuilder sb = new StringBuilder();
-
-        for (int num : res) {
-            sb.append(num);
-            sb.append(' ');
-        }
-
-        System.out.println(sb);
+        Arrays.sort(res);
+        System.out.println(res[n]-res[n-1]);
     }
 
     private static class IOHandler {
@@ -147,5 +129,4 @@ public class C {
         }
 
     }
-
 }

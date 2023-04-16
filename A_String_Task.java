@@ -1,41 +1,26 @@
 import java.io.*;
 import java.util.*;
-//vowels
-//loops (2)
-public class C {
-
+public class A_String_Task {
     static IOHandler sc = new IOHandler();
 
     public static void main(String[] args) {
-
-        int t = sc.nextInt();
-
-        for (int i = 1; i <= t; ++i) {
-            solve(i);
-        }
+        solve();
     }
-
-    private static void solve(int t) {
-        int n = sc.nextInt();
-
-        int [] res = new int [n];
-
-        int [] bArr = sc.readArray(n - 1);
-
-        res[0] = bArr[0];
-
-        for (int i = 0; i < n - 1; ++i) {
-            if (i == 0 || bArr[i] <= bArr[i - 1] )
-                res[i] = bArr[i];
-
-            res[i + 1] = bArr[i];
-        }
+    private static void solve() {
+        String s=sc.next().trim();
 
         StringBuilder sb = new StringBuilder();
 
-        for (int num : res) {
-            sb.append(num);
-            sb.append(' ');
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='A' || s.charAt(i)=='a' || s.charAt(i)=='U' || s.charAt(i)=='u' || s.charAt(i)=='O' || s.charAt(i)=='o' || s.charAt(i)=='I' || s.charAt(i)=='i' || s.charAt(i)=='Y' || s.charAt(i)=='y' || s.charAt(i)=='e' || s.charAt(i)=='E')
+                continue;
+            else {
+                sb.append('.');
+                if((int)s.charAt(i)<=90)
+                    sb.append(Character.toLowerCase(s.charAt(i)));
+                else
+                    sb.append(s.charAt(i));
+            }
         }
 
         System.out.println(sb);
@@ -147,5 +132,4 @@ public class C {
         }
 
     }
-
 }

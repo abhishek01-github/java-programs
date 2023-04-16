@@ -1,8 +1,7 @@
 import java.io.*;
 import java.util.*;
-//vowels
-//loops (2)
-public class C {
+
+public class B_Fix_You {
 
     static IOHandler sc = new IOHandler();
 
@@ -16,31 +15,24 @@ public class C {
     }
 
     private static void solve(int t) {
-        int n = sc.nextInt();
-
-        int [] res = new int [n];
-
-        int [] bArr = sc.readArray(n - 1);
-
-        res[0] = bArr[0];
-
-        for (int i = 0; i < n - 1; ++i) {
-            if (i == 0 || bArr[i] <= bArr[i - 1] )
-                res[i] = bArr[i];
-
-            res[i + 1] = bArr[i];
+        int n=sc.nextInt();
+        int m=sc.nextInt();
+        int count=0;
+        for(int i=0;i<n;i++){
+            String s=sc.next().trim();
+            if(i==n-1){
+                for(int j=0;j<m;j++){
+                    if(s.charAt(j)=='D')
+                        count++;
+                }
+            }
+            else{
+                if(s.charAt(m-1)=='R')
+                    count++;
+            }
         }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int num : res) {
-            sb.append(num);
-            sb.append(' ');
-        }
-
-        System.out.println(sb);
+        System.out.println(count);
     }
-
     private static class IOHandler {
         BufferedReader br;
         StringTokenizer st;
