@@ -1,33 +1,49 @@
-import java.util.*;
 import java.io.*;
-public class C_Numbers_on_Whiteboard {
+import java.util.*;
+public class A_k_String {
     static IOHandler sc = new IOHandler();
 
     public static void main(String[] args) {
 
-        int t = sc.nextInt();
+        int k=sc.nextInt();
+        String s=sc.next().trim();
 
-        for (int i = 1; i <= t; ++i) {
-            solve(i);
+        if(s.length()%k!=0){
+            System.out.println(-1);
+            return;
         }
+
+        int[] res = new int[26];
+        int[] res2 = new int[26];
+        for(int i=0;i<s.length();i++){
+            res[(int)s.charAt(i)-97]++;
+            res2[(int)s.charAt(i)-97]++;
+        }
+        for(int i=0;i<26;i++){
+            if(res[i]%k!=0){
+                System.out.println(-1);
+                return;
+            }
+        }
+        StringBuilder sb = new StringBuilder();
+
+        int n=s.length();
+        int num=0;
+        while(n>0){
+            if(res[num]>0){
+                for(int i=0;i<res2[num]/k;i++) {
+                    sb.append((char) (num + 'a'));
+                    res[num]--;
+                    n--;
+                }
+            }
+            num++;
+            if(num==26)
+                num=0;
+        }
+
+        System.out.println(sb);
     }
-    private static void solve(int t) {
-       int n=sc.nextInt();
-       System.out.println(2);
-
-       StringBuilder sb = new StringBuilder();
-       int s=n;
-
-      for(int i=n-1;i>0;i--){
-          sb.append(s);
-          sb.append(' ');
-          sb.append(i);
-          sb.append(System.getProperty("line.separator"));
-          s=(s+i+1)/2;
-      }
-        System.out.print(sb);
-    }
-
     private static class IOHandler {
         BufferedReader br;
         StringTokenizer st;

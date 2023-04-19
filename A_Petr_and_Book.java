@@ -1,33 +1,26 @@
 import java.util.*;
 import java.io.*;
-public class C_Numbers_on_Whiteboard {
+public class A_Petr_and_Book {
+
     static IOHandler sc = new IOHandler();
 
     public static void main(String[] args) {
-
-        int t = sc.nextInt();
-
-        for (int i = 1; i <= t; ++i) {
-            solve(i);
+        int n=sc.nextInt();
+        int[] res = new int[7];
+        for(int i=0;i<7;i++){
+            res[i]=sc.nextInt();
         }
+        int i=0;
+        while(n>0){
+            n-=res[i];
+            i++;
+            i%=7;
+        }
+        if(i==0)
+            System.out.println(7);
+        else
+        System.out.println(i);
     }
-    private static void solve(int t) {
-       int n=sc.nextInt();
-       System.out.println(2);
-
-       StringBuilder sb = new StringBuilder();
-       int s=n;
-
-      for(int i=n-1;i>0;i--){
-          sb.append(s);
-          sb.append(' ');
-          sb.append(i);
-          sb.append(System.getProperty("line.separator"));
-          s=(s+i+1)/2;
-      }
-        System.out.print(sb);
-    }
-
     private static class IOHandler {
         BufferedReader br;
         StringTokenizer st;
@@ -134,4 +127,5 @@ public class C_Numbers_on_Whiteboard {
         }
 
     }
+
 }
