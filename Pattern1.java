@@ -6,7 +6,7 @@ public class Pattern1 {
             for(int j=n-i;j>=1;j--){
                 System.out.print(" ");
             }
-            for(int j=1;j>=i;j++){
+            for(int j=1;j<=i;j++){
                 System.out.print("#");
             }
             System.out.println();
