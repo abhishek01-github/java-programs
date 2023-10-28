@@ -1,5 +1,5 @@
 import java.util.*;
-public class Subsets {
+public class Subsequence {
     public static void main(String[] args) {
         System.out.println(subsequence("abc",""));
     }

@@ -12,11 +12,28 @@ public class A_City_Day {
         for(int i=0;i<n;i++){
             a[i] = sc.nextInt();
         }
-        if(n<=x){
-            System.out.println(n);
-            return;
+        boolean flag = true;
+        for (int i = 0; i < n; i++) {
+            flag = true;
+            for (int j = i-1; (j >= Math.max(0,i-x)) && flag; j--) {
+                if(a[j]>a[i])
+                    flag = true;
+                else
+                    flag = false;
+            }
+            for (int j = i+1; j <= Math.min(n-1,i+y) && flag; j++) {
+                if(a[j]>a[i])
+                    flag = true;
+                else
+                    flag = false;
+            }
+            if(flag){
+                System.out.println(i+1);
+                return;
+            }
         }
-        
+        System.out.println(n);
+        return;
 
     }
     private static class IOHandler {
