@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Sorting_with_Twos {
 
     static IOHandler sc = new IOHandler();
 
@@ -15,6 +15,19 @@ public class RecommendedWithoutGraph {
 
     private static void solve(int t) {
         int n = sc.nextInt();
+        int [] arr = sc.readArray(n);
+        int m = (int)(Math.log10(n)/Math.log10(2));
+        int j = 2;
+        for (int i = 2; i < n-1; i++) {
+            if(Math.log10(i+1)%Math.log10(2)!=0) {
+                if (arr[i] > arr[i + 1]) {
+                    System.out.println("NO");
+                    return;
+                }
+            } else
+                j++;
+        }
+        System.out.println("YES");
     }
 
     private static class IOHandler {
@@ -56,6 +69,52 @@ public class RecommendedWithoutGraph {
                 res[i] = nextInt();
 
             return res;
+        }
+
+        int [][] readGraph(int n, int m, int c) {
+            int [][] graph = new int [n + 1][];
+
+            int [] count = new int [n + 1];
+            int [][] arr = new int [m][1 + c];
+
+            int a, b;
+
+            for (int i = 0; i < m; ++i) {
+                a = sc.nextInt();
+                b = sc.nextInt();
+
+                arr[i][0] = a;
+                arr[i][1] = b;
+
+                ++count[a];
+                ++count[b];
+
+                for (int j = 2; j <= c; ++j) {
+                    arr[i][j] = sc.nextInt();
+                }
+            }
+
+            for (int i = 0; i <= n; ++i) {
+                graph[i] = new int [count[i] * c];
+                count[i] = 0;
+            }
+            int swap;
+
+            for (int [] tArr : arr) {
+                for (int j = 1; j < tArr.length; ++j) {
+                    graph[tArr[0]][count[tArr[0]]++] = tArr[j];
+                }
+
+                swap = tArr[0];
+                tArr[0] = tArr[1];
+                tArr[1] = swap;
+
+                for (int j = 1; j < tArr.length; ++j) {
+                    graph[tArr[0]][count[tArr[0]]++] = tArr[j];
+                }
+            }
+
+            return graph;
         }
 
         long nextLong() {

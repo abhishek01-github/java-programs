@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Array_with_Odd_Sum {
 
     static IOHandler sc = new IOHandler();
 
@@ -15,6 +15,19 @@ public class RecommendedWithoutGraph {
 
     private static void solve(int t) {
         int n = sc.nextInt();
+        int evens =  0;
+        int odds = 0;
+
+        for (int i = 0; i < n; i++) {
+            if((sc.nextInt() & 1) == 1)
+                odds++;
+            else
+                evens++;
+        }
+        if(odds==0 || (evens==0 && n%2==0))
+            System.out.println("NO");
+        else
+            System.out.println("YES");
     }
 
     private static class IOHandler {

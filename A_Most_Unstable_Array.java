@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Most_Unstable_Array {
 
     static IOHandler sc = new IOHandler();
 
@@ -15,6 +15,14 @@ public class RecommendedWithoutGraph {
 
     private static void solve(int t) {
         int n = sc.nextInt();
+        int m = sc.nextInt();
+
+        if(n==1)
+            System.out.println(0);
+        else if(n==2)
+            System.out.println(m);
+        else
+            System.out.println(2*m);
     }
 
     private static class IOHandler {

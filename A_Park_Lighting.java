@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Park_Lighting {
 
     static IOHandler sc = new IOHandler();
 
@@ -14,7 +14,12 @@ public class RecommendedWithoutGraph {
     }
 
     private static void solve(int t) {
-        int n = sc.nextInt();
+        int n = sc.nextInt() * sc.nextInt();
+
+        if((n & 1)==1)
+            System.out.println((n/2)+1);
+        else
+            System.out.println(n/2);
     }
 
     private static class IOHandler {

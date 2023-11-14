@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Magical_Sticks {
 
     static IOHandler sc = new IOHandler();
 
@@ -15,6 +15,11 @@ public class RecommendedWithoutGraph {
 
     private static void solve(int t) {
         int n = sc.nextInt();
+
+        if(n<=2)
+            System.out.println(1);
+        else
+            System.out.println(((n-1)/2)+1);
     }
 
     private static class IOHandler {

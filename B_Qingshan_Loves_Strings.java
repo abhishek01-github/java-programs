@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class Recommended {
+public class B_Qingshan_Loves_Strings {
 
     static IOHandler sc = new IOHandler();
 
@@ -13,30 +13,28 @@ public class Recommended {
         }
     }
 
-    private static void solve(int t) {
+    private static void solve(int x) {
         int n = sc.nextInt();
-
-        int [] res = new int [n];
-
-        int [] bArr = sc.readArray(n - 1);
-
-        res[0] = bArr[0];
-
-        for (int i = 0; i < n - 1; ++i) {
-            if (i == 0 || bArr[i] <= bArr[i - 1] )
-                res[i] = bArr[i];
-
-            res[i + 1] = bArr[i];
+        int m = sc.nextInt();
+        String s = sc.next().trim();
+        String t = sc.next().trim();
+        boolean flag = true;
+        for (int i = 1; i < m; i++) {
+            if(t.charAt(i)==t.charAt(i-1)){
+                flag = false;
+            }
         }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int num : res) {
-            sb.append(num);
-            sb.append(' ');
+        for (int i = 1; i < n; i++) {
+            if(s.charAt(i)==s.charAt(i-1)){
+                if((s.charAt(i)!=t.charAt(0) && t.charAt(0)==t.charAt(m-1)) && flag)
+                    continue;
+                else{
+                    System.out.println("NO");
+                    return;
+                }
+            }
         }
-
-        System.out.println(sb);
+        System.out.println("YES");
     }
 
     private static class IOHandler {

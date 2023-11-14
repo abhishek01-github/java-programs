@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Three_Pairwise_Maximums {
 
     static IOHandler sc = new IOHandler();
 
@@ -14,7 +14,23 @@ public class RecommendedWithoutGraph {
     }
 
     private static void solve(int t) {
-        int n = sc.nextInt();
+        int x = sc.nextInt();
+        int y = sc.nextInt();
+        int z = sc.nextInt();
+        int max = Math.max(x,Math.max(y,z));
+        int min = Math.min(x,Math.min(y,z));
+
+        if((x==y && x==max) || (y==z && y==max) || (x==z && z==max)){
+                if(x==y && y==z) {
+                    System.out.println("YES");
+                    System.out.println(x + " " + y + " " + z);
+                    return;
+                }
+                System.out.println("YES");
+                System.out.println(max + " " + min + " " + min);
+                return;
+        }
+        System.out.println("NO");
     }
 
     private static class IOHandler {

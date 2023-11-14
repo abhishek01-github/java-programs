@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class Recommended {
+public class A_Doremy_s_Paint_3 {
 
     static IOHandler sc = new IOHandler();
 
@@ -15,28 +15,38 @@ public class Recommended {
 
     private static void solve(int t) {
         int n = sc.nextInt();
-
-        int [] res = new int [n];
-
-        int [] bArr = sc.readArray(n - 1);
-
-        res[0] = bArr[0];
-
-        for (int i = 0; i < n - 1; ++i) {
-            if (i == 0 || bArr[i] <= bArr[i - 1] )
-                res[i] = bArr[i];
-
-            res[i + 1] = bArr[i];
+        boolean flag = false;
+        int [] arr = sc.readArray(n);
+        int first = arr[0];
+        int second = 0;
+        int x=0;
+        int y=0;
+        for (int i = 0; i < n; i++) {
+            if(arr[i]==first){
+                x++;
+            }else if(second==0) {
+                second = arr[i];
+                y++;
+            }
+            else if(arr[i]==second){
+                y++;
+            }else {
+                flag = true;
+                break;
+            }
         }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int num : res) {
-            sb.append(num);
-            sb.append(' ');
+        if(flag){
+            System.out.println("NO");
+            return;
         }
-
-        System.out.println(sb);
+        if(second==0)
+            System.out.println("YES");
+        else{
+            if(Math.abs(x-y)==1 || Math.abs(x-y)==0)
+                System.out.println("YES");
+            else
+                System.out.println("NO");
+        }
     }
 
     private static class IOHandler {
@@ -145,5 +155,4 @@ public class Recommended {
         }
 
     }
-
 }

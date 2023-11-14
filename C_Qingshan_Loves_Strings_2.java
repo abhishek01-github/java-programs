@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class Recommended {
+public class C_Qingshan_Loves_Strings_2 {
 
     static IOHandler sc = new IOHandler();
 
@@ -15,28 +15,34 @@ public class Recommended {
 
     private static void solve(int t) {
         int n = sc.nextInt();
-
-        int [] res = new int [n];
-
-        int [] bArr = sc.readArray(n - 1);
-
-        res[0] = bArr[0];
-
-        for (int i = 0; i < n - 1; ++i) {
-            if (i == 0 || bArr[i] <= bArr[i - 1] )
-                res[i] = bArr[i];
-
-            res[i + 1] = bArr[i];
+        String s = sc.next().trim();
+        StringBuilder sb = new StringBuilder(s);
+        StringBuilder ans = new StringBuilder();
+        int count=0;
+        boolean flag = false;
+        for (int i = 0; i < n; i++) {
+            if(sb.charAt(i)==sb.charAt(n-i-1)){
+                if(sb.charAt(i)=='0'){
+                    sb.insert(n-i,"01");
+                    ans.append(n-i).append(' ');
+                } else {
+                    sb.insert(i,"01");
+                    ans.append(i).append(' ');
+                }
+                count++;
+            }
+            n=sb.length();
+            if(count>300) {
+                flag = true;
+                break;
+            }
         }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int num : res) {
-            sb.append(num);
-            sb.append(' ');
+        if(flag){
+            System.out.println(-1);
+            return;
         }
-
-        System.out.println(sb);
+        System.out.println(count);
+        System.out.println(ans);
     }
 
     private static class IOHandler {

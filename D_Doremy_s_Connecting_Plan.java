@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class Recommended {
+public class D_Doremy_s_Connecting_Plan {
 
     static IOHandler sc = new IOHandler();
 
@@ -15,28 +15,27 @@ public class Recommended {
 
     private static void solve(int t) {
         int n = sc.nextInt();
-
-        int [] res = new int [n];
-
-        int [] bArr = sc.readArray(n - 1);
-
-        res[0] = bArr[0];
-
-        for (int i = 0; i < n - 1; ++i) {
-            if (i == 0 || bArr[i] <= bArr[i - 1] )
-                res[i] = bArr[i];
-
-            res[i + 1] = bArr[i];
+        long c = sc.nextLong();
+        long remain = 0;
+        int index = 0;
+        long sum = sc.nextLong();
+        for (int i = 2; i <= n; i++) {
+            long element = sc.nextLong();
+                if(sum+element>=c*i) {
+                    sum += element;
+                    sum += remain;
+                    remain=0;
+                    index=0;
+                }
+                else{
+                    remain+=element;
+                    index=i;
+                }
         }
-
-        StringBuilder sb = new StringBuilder();
-
-        for (int num : res) {
-            sb.append(num);
-            sb.append(' ');
-        }
-
-        System.out.println(sb);
+        if(index!=0)
+            System.out.println("NO");
+        else
+            System.out.println("YES");
     }
 
     private static class IOHandler {

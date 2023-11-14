@@ -14,58 +14,22 @@ public class B_Sort_the_Subarray {
 
     private static void solve(int t) {
         int n = sc.nextInt();
-        int[] a = new int[n];
-        int[] b = new int[n];
-        int first=0;
-        int second=0;
-        int start1=0;
-        int last1=0;
-        int start2=0;
-        int last2=0;
-        boolean flag=false;
-
-        for(int i=0;i<n;i++){
-            a[i] = sc.nextInt();
-        }
-        for(int i=0;i<n;i++){
-            b[i]=sc.nextInt();
-            if(b[i]!=a[i] && flag==false) {
-                first=i;
-                second=i;
-                flag=true;
-            }
-            if(flag==true) {
-                if (b[i] >= b[i-1])
-                    second = i;
-                else
-                    break;
-            }
-        }
-        int max=0;
-        int count=0;
-        for(int i=1;i<n;i++){
-            if(b[i]>=b[i-1]){
-                count++;
-                last2++;
-            } else {
-                if(max<count){
-                    max=count;
-                    start1=start2;
-                    last1=last2;
-                    count=0;
+        int[] a = sc.readArray(n);
+        int[] b = sc.readArray(n);
+        int l = 0;
+        boolean flag = false;
+        for (int i = 1; i < n; i++) {
+            if(b[i]<b[i-1]){
+                if(flag){
+                    System.out.println(l+1 + " " + i);
+                    return;
                 }
-                start2=i;
-                count++;
+                l = i;
             }
+            if(a[i]!=b[i])
+                flag = true;
         }
-        if(start1<=first && last1>=second){
-            first=start1;
-            second=last1;
-        } else if(start1<=first && last1<=second)
-            first=start1;
-        else if(start1>=first && last1>=second)
-            second=last1;
-        System.out.println((first+1) + " " + (second+1));
+        System.out.println(l+1 + " " + n);
     }
 
     private static class IOHandler {

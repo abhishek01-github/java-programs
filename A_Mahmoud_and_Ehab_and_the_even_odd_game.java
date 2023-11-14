@@ -1,20 +1,22 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Mahmoud_and_Ehab_and_the_even_odd_game {
 
     static IOHandler sc = new IOHandler();
 
     public static void main(String[] args) {
 
-        int t = sc.nextInt();
+        solve();
 
-        for (int i = 1; i <= t; ++i) {
-            solve(i);
-        }
     }
 
-    private static void solve(int t) {
+    private static void solve() {
         int n = sc.nextInt();
+
+        if((n & 1)==1)
+            System.out.println("Ehab");
+        else
+            System.out.println("Mahmoud");
     }
 
     private static class IOHandler {

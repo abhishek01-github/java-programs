@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Collecting_Coins {
 
     static IOHandler sc = new IOHandler();
 
@@ -14,7 +14,16 @@ public class RecommendedWithoutGraph {
     }
 
     private static void solve(int t) {
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+        int c = sc.nextInt();
         int n = sc.nextInt();
+        int max = Math.max(a,Math.max(b,c));
+        int diff = (max-a)+(max-b)+(max-c);
+        if(n-diff>=0 && (n-diff)%3==0)
+            System.out.println("YES");
+        else
+            System.out.println("NO");
     }
 
     private static class IOHandler {

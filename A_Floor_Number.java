@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class RecommendedWithoutGraph {
+public class A_Floor_Number {
 
     static IOHandler sc = new IOHandler();
 
@@ -15,6 +15,16 @@ public class RecommendedWithoutGraph {
 
     private static void solve(int t) {
         int n = sc.nextInt();
+        int x = sc.nextInt();
+
+        if(n<=2) {
+            System.out.println(1);
+            return;
+        }
+        if((n-2)%x>0)
+            System.out.println(((n-2)/x)+2);
+        else
+            System.out.println(((n-2)/x)+1);
     }
 
     private static class IOHandler {
