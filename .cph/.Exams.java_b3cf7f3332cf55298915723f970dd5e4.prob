@@ -1,0 +1,1 @@
+{"name":"Local: Exams","url":"c:\\Users\\Abhishek Pandey\\java programs\\Exams.java","tests":[{"id":1701873512154,"input":"4\n2 10 12\n2 10 3\n1 5 3\n3 6 9","output":"YES\nNO\nYES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\Abhishek Pandey\\java programs\\Exams.java","group":"local","local":true}
