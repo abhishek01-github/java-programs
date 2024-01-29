@@ -8,10 +8,58 @@ public class B_OR_in_Matrix {
 
         int m = sc.nextInt();
         int n = sc.nextInt();
-        int a[][] = new int[m][n];
-        int b[][] = new int[m][n];
-        for (int i = 0; i < ; i++) {
+        int[][] arr = new int[m][n];
+        int[][] a = new int[m][n];
 
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                arr[i][j] = sc.nextInt();
+            }
+        }
+        boolean flag = false;
+        boolean ones = false;
+        int count = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                if(arr[i][j]==1){
+                    count++;
+                    ones = true;
+                    a[i][j] = 1;
+                    for (int k = 0; k < m; k++) {
+                        if(arr[k][j]==0){
+                            flag = true;
+                            break;
+                        }
+                    }
+                    for (int k = 0; k < n; k++) {
+                        if(arr[i][k]==0){
+                            if(flag){
+                                System.out.println("NO");
+                                return;
+                            }
+                            a[i][j] = 0;
+                            count--;
+                            break;
+                        }
+                    }
+                    if(flag) {
+                        a[i][j] = 0;
+                        count--;
+                    }
+                }
+                flag = false;
+            }
+        }
+        if(count==0 && ones){
+            System.out.println("NO");
+            return;
+        }
+        System.out.println("YES");
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                System.out.print(a[i][j] + " ");
+            }
+            System.out.println();
         }
     }
 

@@ -10,18 +10,7 @@ public class A implements Runnable {
     void solve() {
         int t = scn.nextInt();
         while(t-- > 0) {
-            int[] arr = scn.nextIntArray(3);
-            Arrays.parallelSort(arr);
-            int n = scn.nextInt();
-
-            int x = arr[2] - arr[0];
-            int y = arr[2] - arr[1];
-
-            if(x + y <= n && (n - x - y) % 3 == 0) {
-                out.println("YES");
-            } else {
-                out.println("NO");
-            }
++
         }
     }
 

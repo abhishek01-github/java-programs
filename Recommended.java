@@ -126,6 +126,23 @@ public class Recommended {
             return graph;
         }
 
+        static long[] factorials = new long[2_000_001];
+        static long[] invFactorials = new long[2_000_001];
+
+        void precompFacts() {
+            factorials[0] = invFactorials[0] = 1;
+            for (int i = 1; i < factorials.length; i++)
+                factorials[i] = mul(factorials[i - 1], i);
+            invFactorials[factorials.length - 1] = exp(factorials[factorials.length - 1], mod - 2);
+            for (int i = invFactorials.length - 2; i >= 0; i--)
+                invFactorials[i] = mul(invFactorials[i + 1], i + 1);
+        }
+
+        long nCk(int n, int k) {
+            //Always initialize precompFacts() to use.
+            return mul(factorials[n], mul(invFactorials[k], invFactorials[n - k]));
+        }
+
         long nextLong() {
             return Long.parseLong(next());
         }

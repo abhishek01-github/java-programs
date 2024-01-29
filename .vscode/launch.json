@@ -6,6 +6,48 @@
     "configurations": [
         {
             "type": "java",
+            "name": "TreeImplementation",
+            "request": "launch",
+            "mainClass": "TreeImplementation",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "Dota2Senate",
+            "request": "launch",
+            "mainClass": "Dota2Senate",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "LinkedListExample",
+            "request": "launch",
+            "mainClass": "LinkedListExample",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "SudokuSolver",
+            "request": "launch",
+            "mainClass": "SudokuSolver",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "Beautiful_Strings",
+            "request": "launch",
+            "mainClass": "Beautiful_Strings",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "A_Theatre_Square",
+            "request": "launch",
+            "mainClass": "A_Theatre_Square",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
             "name": "Attach",
             "request": "attach",
             "hostName": "localhost",

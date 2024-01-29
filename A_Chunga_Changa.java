@@ -11,6 +11,7 @@ public class A_Chunga_Changa {
     }
 
     private static void solve(int t) {
+        // time constraints and nextLong()
         long x = sc.nextLong();
         long y = sc.nextLong();
         long z = sc.nextLong();

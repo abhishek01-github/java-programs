@@ -33,61 +33,7 @@ public class Prefixing {
         for (int i = 0; i < n; i++) {
             sb.append(a[i]).append(" ");
         }
-        System.out.println(sb
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        );
+        System.out.println(sb);
     }
 
     private static class IOHandler {

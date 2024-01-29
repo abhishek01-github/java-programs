@@ -1,51 +1,97 @@
+import java.io.*;
 import java.util.*;
 public class G_1_Subsequence_Addition_Easy_Version {
-    static boolean subArraySum(int arr[], int n, int sum) {
-        int currentSum = arr[0], start = 0, i;
-        for (i = 1; i <= n; i++) {
-            while (currentSum > sum && start < i - 1) {
-                currentSum = currentSum - arr[start];
-                start++;
-            }
-            if (currentSum == sum) {
-                int p = i - 1;
-                return true;
-            }
-            if (i < n)
-                currentSum = currentSum + arr[i];
-        }
-        return false;
-    }
+
+    static IOHandler sc = new IOHandler();
+
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int t = input.nextInt();
-        while (t>0){
-            int n = input.nextInt();
-            int[] a = new int[n];
-            for(int i=0;i<n;i++){
-                a[i]=input.nextInt();
+
+        int t = sc.nextInt();
+
+        for (int i = 1; i <= t; ++i) {
+            solve(i);
+        }
+    }
+
+    private static void solve(int t) {
+        int n = sc.nextInt();
+        int[] a = sc.readArray(n);
+        Arrays.sort(a);
+        int sum = 1;
+        if(a[0]>1){
+            System.out.println("NO");
+            return;
+        }
+
+        for (int i = 1; i < n; i++) {
+            if(a[i]>sum){
+                System.out.println("NO");
+                return;
             }
-            Arrays.sort(a);
-            if(a[0]!=1) {
-                System.out.println("no");
-                continue;
-            }
-            boolean flag = true;
-            for(int i=1;i<n;i++){
-                if(a[i]==a[i-1])
-                    continue;
-                if (subArraySum(a,i,a[i]))
-                    continue;
-                else{
-                    flag=false;
-                    break;
+            sum+=a[i];
+        }
+        System.out.println("YES");
+    }
+
+    private static class IOHandler {
+        BufferedReader br;
+        StringTokenizer st;
+
+        public IOHandler() {
+            br = new BufferedReader(new InputStreamReader(System.in));
+        }
+
+        String next() {
+            while (st == null || !st.hasMoreElements()) {
+                try {
+                    st = new StringTokenizer(br.readLine());
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
             }
-            if(flag)
-                System.out.println("YES");
-            else
-                System.out.println("NO");
-            t--;
+            return st.nextToken();
         }
+
+        int nextInt() {
+            return Integer.parseInt(next());
+        }
+
+        int [] readArray(int n) {
+            int [] res = new int [n];
+
+            for (int i = 0; i < n; ++i)
+                res[i] = nextInt();
+
+            return res;
+        }
+
+        int [] readArray2(int n) {
+            int [] res = new int [n + 1];
+
+            for (int i = 1; i <= n; ++i)
+                res[i] = nextInt();
+
+            return res;
+        }
+
+        long nextLong() {
+            return Long.parseLong(next());
+        }
+
+        double nextDouble() {
+            return Double.parseDouble(next());
+        }
+
+        String nextLine(){
+            String str = "";
+            try {
+                str = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return str;
+        }
+
     }
+
 }
