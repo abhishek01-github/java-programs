@@ -66,4 +66,18 @@ public class BinaryTree {
             display(node.right);
         }
     }
+
+    public boolean search(int val){
+        return search(root,val);
+    }
+
+    public boolean search(Node node, int val){
+        if(node == null){
+            return false;
+        }
+        if(node.value == val){
+            return true;
+        }
+        return search(node.left, val) || search(node.right, val);
+    }    
 }

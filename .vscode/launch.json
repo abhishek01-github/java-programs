@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Sub_or_Swp",
+            "request": "launch",
+            "mainClass": "Sub_or_Swp",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
             "name": "TreeImplementation",
             "request": "launch",
             "mainClass": "TreeImplementation",
