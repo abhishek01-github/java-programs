@@ -1,27 +1,39 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class B_T_primes {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
+        int limit = 1000001;
+        boolean[] isPrime = new boolean[limit];
+        Arrays.fill(isPrime, true);
+        isPrime[0] = false;
+        isPrime[1] = false;
 
-        solve(1);
+        for (int i = 2; i * i < limit; i++) {
+            if (isPrime[i]) {
+                for (int j = i * i; j < limit; j += i) {
+                    isPrime[j] = false;
+                }
+            }
+        }
+
+        solve(1, isPrime);
         sc.close();
     }
 
-    private static void solve(int t) {
-        // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
-
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+    private static void solve(int t, boolean[] isPrime) {
+        int n = sc.nextInt();
+        while (n-- > 0) {
+            long x = sc.nextLong();
+            long sq = (long) Math.sqrt(x);
+            if (sq * sq == x && sq < isPrime.length && isPrime[(int) sq]) {
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
         }
-        System.out.println(ans);
     }
 }
 
@@ -144,6 +156,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

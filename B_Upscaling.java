@@ -1,27 +1,61 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class B_Upscaling {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
+        int t = sc.nextInt();
 
-        solve(1);
+        for (int i = 1; i <= t; ++i) {
+            solve(i);
+        }
         sc.close();
     }
 
     private static void solve(int t) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
+        int n = sc.nextInt();
+        char[][] a = new char[2*n][2*n];
 
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if(i%2==0){
+                    if(j%2==0){
+                        a[2*i][2*j] = '#';
+                        a[2*i+1][2*j+1] = '#';
+                        a[2*i][2*j+1] = '#';
+                        a[2*i+1][2*j] = '#';
+                    } else {
+                        a[2*i][2*j] = '.';
+                        a[2*i+1][2*j+1] = '.';
+                        a[2*i][2*j+1] = '.';
+                        a[2*i+1][2*j] = '.';
+                    }
+                } else {
+                    if(j%2!=0){
+                        a[2*i][2*j] = '#';
+                        a[2*i+1][2*j+1] = '#';
+                        a[2*i][2*j+1] = '#';
+                        a[2*i+1][2*j] = '#';
+                    } else {
+                        a[2*i][2*j] = '.';
+                        a[2*i+1][2*j+1] = '.';
+                        a[2*i][2*j+1] = '.';
+                        a[2*i+1][2*j] = '.';
+                    }
+                }
+            }
         }
-        System.out.println(ans);
+
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < 2*n; i++) {
+            for (int j = 0; j < 2*n; j++) {
+                sb.append(a[i][j]);
+            }
+            sb.append('\n');
+        }
+        System.out.print(sb);
     }
 }
 
@@ -144,6 +178,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

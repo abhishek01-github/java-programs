@@ -1,27 +1,31 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class B_Increase_Decrease_Copy {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
+        int t = sc.nextInt();
 
-        solve(1);
+        for (int i = 1; i <= t; ++i) {
+            solve(i);
+        }
         sc.close();
     }
 
     private static void solve(int t) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
-
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        int n = sc.nextInt(), last = Integer.MAX_VALUE;
+        int[] a = sc.readArray(n);
+        int[] b = sc.readArray(n+1);
+        long ans = 1; int el = b[n];
+        
+        for(int i=0; i<n; i++){
+            ans += Math.abs(a[i] - b[i]);
+            if((el<=a[i] && el>=b[i]) || (el>=a[i] && el<=b[i])) last = 0;
+            last = Math.min(last, Math.min(Math.abs(a[i] - el), Math.abs(b[i] - el)));
         }
-        System.out.println(ans);
+        System.out.println(ans + last);
     }
 }
 
@@ -144,6 +148,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

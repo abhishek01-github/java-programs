@@ -1,27 +1,33 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class A_Special_Characters {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
+        int t = sc.nextInt();
 
-        solve(1);
+        for (int i = 1; i <= t; ++i) {
+            solve(i);
+        }
         sc.close();
     }
 
     private static void solve(int t) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
-
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        int n = sc.nextInt();
+        if(n%2!=0){
+            System.out.println("NO");
+            return;
         }
-        System.out.println(ans);
+
+        System.out.println("YES");
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < n/2; i++) {
+            char ch = (char)(i + 'A');
+            sb.append(ch).append(ch);
+        }
+        System.out.println(sb);
     }
 }
 
@@ -144,6 +150,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

@@ -1,3 +1,4 @@
 {
-    "cph.general.onceMaintainerMessage": false
+    "cph.general.onceMaintainerMessage": false,
+    "java.debug.settings.onBuildFailureProceed": true
 }

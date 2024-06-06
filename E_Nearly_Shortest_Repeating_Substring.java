@@ -1,27 +1,50 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class E_Nearly_Shortest_Repeating_Substring {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
+        int t = sc.nextInt();
 
-        solve(1);
+        for (int i = 1; i <= t; ++i) {
+            solve(i);
+        }
         sc.close();
     }
 
     private static void solve(int t) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
+        int n = sc.nextInt();
+        String s = sc.next().trim();
 
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        ArrayList<Integer> d = new ArrayList<>();
+        for (int i = 1; i * i <= n; i++) {
+            if (n % i == 0) {
+                d.add(i);
+                if (n / i != i)
+                    d.add(n / i);
+            }
         }
-        System.out.println(ans);
+        Collections.sort(d);
+        for (int i = 0; i < d.size(); i++) {
+            int len = d.get(i);
+            String x = s.substring(0, len);
+            String y = s.substring(n - len);
+            int a = 0, b = 0;
+            for (int j = 0; j < n; j += len) {
+                for (int k = j; k < j + len; k++) {
+                    if (s.charAt(k) != x.charAt(k % len))
+                        a++;
+                    if (s.charAt(k) != y.charAt(k % len))
+                        b++;
+                }
+            }
+            if (a < 2 || b < 2) {
+                System.out.println(len);
+                return;
+            }
+        }
     }
 }
 
@@ -144,6 +167,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

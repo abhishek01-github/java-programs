@@ -6,6 +6,181 @@
     "configurations": [
         {
             "type": "java",
+            "name": "min",
+            "request": "launch",
+            "mainClass": "min",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "minGroups",
+            "request": "launch",
+            "mainClass": "minGroups",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "minG",
+            "request": "launch",
+            "mainClass": "minG",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "Solution",
+            "request": "launch",
+            "mainClass": "Solution",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "MaxMinCost",
+            "request": "launch",
+            "mainClass": "MaxMinCost",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "MedianOfMediansContiguousSubsequence",
+            "request": "launch",
+            "mainClass": "MedianOfMediansContiguousSubsequence",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "MedianOfMediansOptimizedWithQuickselect",
+            "request": "launch",
+            "mainClass": "MedianOfMediansOptimizedWithQuickselect",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "MedianOfMedians",
+            "request": "launch",
+            "mainClass": "MedianOfMedians",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "MedianOfMediansOptimized",
+            "request": "launch",
+            "mainClass": "MedianOfMediansOptimized",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "Test3",
+            "request": "launch",
+            "mainClass": "Test3",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "pattern2",
+            "request": "launch",
+            "mainClass": "pattern2",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "PrimeOrNot",
+            "request": "launch",
+            "mainClass": "PrimeOrNot",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "SetKthBit",
+            "request": "launch",
+            "mainClass": "SetKthBit",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "SQRT_Decomposition",
+            "request": "launch",
+            "mainClass": "SQRT_Decomposition",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "towerOfHanoi",
+            "request": "launch",
+            "mainClass": "towerOfHanoi",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "D_Non_zero_Segments",
+            "request": "launch",
+            "mainClass": "D_Non_zero_Segments",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "recommendedwithoutT",
+            "request": "launch",
+            "mainClass": "recommendedwithoutT",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "StringMethods",
+            "request": "launch",
+            "mainClass": "StringMethods",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "leftShift",
+            "request": "launch",
+            "mainClass": "leftShift",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "ASCIITest",
+            "request": "launch",
+            "mainClass": "ASCIITest",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "ReverseArrayRecursion",
+            "request": "launch",
+            "mainClass": "ReverseArrayRecursion",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "SumTillNRecursion",
+            "request": "launch",
+            "mainClass": "SumTillNRecursion",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "PrintNumberRecursion",
+            "request": "launch",
+            "mainClass": "PrintNumberRecursion",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "recursionExample",
+            "request": "launch",
+            "mainClass": "recursionExample",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "Array_Size",
+            "request": "launch",
+            "mainClass": "Array_Size",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
             "name": "Sub_or_Swp",
             "request": "launch",
             "mainClass": "Sub_or_Swp",

@@ -13,7 +13,7 @@ public class recommendedwithoutT {
     private static void solve(int t) {
         // time constraint and nextLong()
         int n = sc.nextInt();
-
+        
     }
 }
 
@@ -136,8 +136,6 @@ class FastIO {
         }
         return arr;
     }
-
-
 
     static long add(long a, long b) {
         return (a + b) % MOD;

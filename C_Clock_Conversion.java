@@ -1,28 +1,41 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class C_Clock_Conversion {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
+        int t = sc.nextInt();
 
-        solve(1);
+        for (int i = 1; i <= t; ++i) {
+            solve(i);
+        }
         sc.close();
     }
 
     private static void solve(int t) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
+        String[] s = sc.next().split(":");
+        int h = Integer.parseInt(s[0]);
+        int m = Integer.parseInt(s[1]);
 
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        if (h > 12 || h < 1) {
+            h = h % 12;
+            if (h == 0){
+                h = 12;
+                System.out.println(String.format("%02d", h) + ":" + s[1] + " AM");
+                return;
+            }
+            System.out.println(String.format("%02d", h) + ":" + s[1] + " PM");
+            return;
         }
-        System.out.println(ans);
+        if(h<12){
+        System.out.println(String.format("%02d", h) + ":" + s[1] + " AM");
+        } else {
+            System.out.println(String.format("%02d", h) + ":" + s[1] + " PM");
+        }
     }
+
 }
 
 class FastIO {
@@ -144,6 +157,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

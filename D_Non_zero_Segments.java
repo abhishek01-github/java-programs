@@ -1,27 +1,35 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class D_Non_zero_Segments {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
-
+        
         solve(1);
         sc.close();
     }
 
     private static void solve(int t) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
+        int n = sc.nextInt();
+        int[] a = sc.readArray(n);
+        Set<Long> set = new HashSet<>();
+        set.add(0L);
+        long sum = 0;
+        int count = 0;
 
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        for(int num : a){
+            sum += num;
+            if(set.contains(sum)){
+                count++;
+                set.clear();
+                set.add(0L);
+                sum = num;
+            }
+            set.add(sum);
         }
-        System.out.println(ans);
+        System.out.println(count);
     }
 }
 
@@ -144,6 +152,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

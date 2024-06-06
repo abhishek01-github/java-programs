@@ -1,28 +1,42 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class D_Product_of_Binary_Decimals {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
+        int t = sc.nextInt();
 
-        solve(1);
+        int[] a = {1, 10, 11, 100, 101, 110, 111, 1000, 1001, 1010, 1011, 1100, 1101, 1110, 1111, 10000, 10001, 10010, 10011, 10100, 10101, 10110, 10111, 11000, 11001, 11010, 11011, 11100, 11101, 11110, 11111, 100000, 100001, 100010, 100011, 100100, 100101, 100110, 100111, 101000, 101001, 101010, 101011, 101100, 101101, 101110, 101111, 110000, 110001, 110010, 110011, 110100, 110101, 110110, 110111, 111000, 111001, 111010, 111011, 111100, 111101, 111110,111111,121,1210,1221,1331,10201,11121,11211,12100,12111,12210,12221,12321,13310,13431,14641};
+        Set<Integer> set = new HashSet<>();
+        for (int num : a) {
+            set.add(num);
+        }
+        for (int i = 1; i <= t; ++i) {
+            solve(i,set);
+        }
         sc.close();
     }
 
-    private static void solve(int t) {
+    private static void solve(int t,Set<Integer> s) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
+        int n = sc.nextInt();
 
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        if(s.contains(n)){
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
         }
-        System.out.println(ans);
     }
+    static boolean isBinary(int a) {
+        while (a > 0) {
+            if (a % 10 != 0 && a % 10 != 1)
+                return false;
+            a /= 10;
+        }
+        return true;
+    }
+
 }
 
 class FastIO {
@@ -144,6 +158,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

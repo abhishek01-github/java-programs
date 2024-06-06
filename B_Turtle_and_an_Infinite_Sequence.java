@@ -1,25 +1,29 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class B_Turtle_and_an_Infinite_Sequence {
 
     static FastIO sc = new FastIO();
 
     public static void main(String[] args) {
-
-        solve(1);
+        int t = sc.nextInt();
+    
+        for (int i = 1; i <= t; ++i) {
+            solve(i);
+        }
         sc.close();
     }
 
     private static void solve(int t) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
+        int n = sc.nextInt(), m = sc.nextInt();
+        int l = Math.max(0, n-m), r = n+m;
+        int ans = 0;
 
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        for(int i=0; i<32; i++){
+            int a = l>>i;
+            int b = r>>i;
+            if((a & 1) == 1) ans |= (1<<i);
+            if(a < b) ans |= (1<<i);
         }
         System.out.println(ans);
     }
@@ -144,6 +148,8 @@ class FastIO {
         }
         return arr;
     }
+
+
 
     static long add(long a, long b) {
         return (a + b) % MOD;

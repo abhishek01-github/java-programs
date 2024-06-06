@@ -1,6 +1,6 @@
 import java.io.*;
 import java.util.*;
-public class A_Chewbacca_and_Number {
+public class B_Sherlock_and_his_girlfriend {
 
     static FastIO sc = new FastIO();
 
@@ -12,16 +12,29 @@ public class A_Chewbacca_and_Number {
 
     private static void solve(int t) {
         // time constraint and nextLong()
-        long n = sc.nextLong();
-        long ans = 0, x = 1;
+        int n = sc.nextInt();
+        int[] colours = new int[n];
+        boolean[] isPrime = new boolean[n+2];
+        Arrays.fill(isPrime, true);
 
-        while(n > 0){
-            long num = n%10;
-            if(n==9) ans += (x*num);
-            else ans += (x*Math.min(num, 9-num));
-            n /= 10; x *= 10;
+        isPrime[0] = isPrime[1] = false;
+        for(int i=2; i<=n+1; i++){
+            if(isPrime[i]){
+                colours[i-2] = 1;
+                for(int j=i+i; j<=n+1; j+=i){
+                    isPrime[j] = false;
+                    colours[j-2] = 2;
+                }
+            }
         }
-        System.out.println(ans);
+
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<colours.length; i++){
+            sb.append(colours[i]).append(' ');
+        }
+        if(n<3) System.out.println(1);
+        else System.out.println(2);
+        System.out.println(sb);
     }
 }
 
