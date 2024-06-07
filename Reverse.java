@@ -1,15 +1,10 @@
 public class Reverse {
-    static int sum = 0;
-    static void rev1(int n) {
-        if (n == 0) {
-            System.out.println(sum);
-            return;
-        }
-        int rem = n % 10;
-        sum = sum * 10 + rem;
-        rev1(n/10);
-    }
     public static void main(String[] args) {
-        rev1(1234);
+        System.out.println(rev1(0 ,1234));
+    }
+    static int rev1(int n, int num){
+        if(num == 0) return n/10;
+        n = (n + (num%10))*10;
+        return rev1(n ,num/10);
     }
 }

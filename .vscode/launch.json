@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "B_XOR_Sequences",
+            "request": "launch",
+            "mainClass": "B_XOR_Sequences",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
+            "name": "Reverse",
+            "request": "launch",
+            "mainClass": "Reverse",
+            "projectName": "java programs_9f7c80fd"
+        },
+        {
+            "type": "java",
             "name": "min",
             "request": "launch",
             "mainClass": "min",
